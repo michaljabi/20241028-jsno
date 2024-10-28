@@ -38,11 +38,17 @@ console.log(sumMyNumbers(10, 20))
 let sampleNumber = 10
 // To powinniśmy je również móc przekazać jako parametr w funkcji:
 
-const sayHello = function () {
+const sayHello = () => {
 	console.log('Hello John!')
 }
+
+// sayHello()
+
+const sayHello2 = () => console.log('Hello John!')
+
 // Zapis powyżej to tzw. "Function expression" - wyrażenie funkcji
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
+
 
 /** 
  * @param {*} sayHelloFn 
@@ -55,7 +61,7 @@ function greetings(sayHelloFn, luckyNumber) {
 // Zapis powyżej to tzw. "Function declaration" - deklaracja funkcji
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
-greetings(sayHello, sampleNumber)
+// greetings(sayHello, sampleNumber)
 
 // możesz mieć obiekt (instancje) i od razu na nim metodę 
 const myUser = {

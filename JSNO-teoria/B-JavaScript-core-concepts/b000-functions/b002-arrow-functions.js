@@ -14,11 +14,16 @@
 
 // Nowości ES6+ (po 2015r):
 // dostajemy Arrow functions:
-const newFunc = ( name ) => `Hello ${name}!`;
+const newFunc = (name) => `Hello ${name}!`;
 const newFunc2 = name => `Hello ${name}!`;
-const newFunc3 = ( name ) => {
+const newFunc3 = (name) => {
+    console.log('?')
     return `Hello ${name}!`;
 };
+
+newFunc('Michał') //=
+newFunc2('Michał') //=
+newFunc3('Michał') //=
 
 // Przypomnienie:
 // Funkcja może zwracać inną funkcję:
@@ -35,7 +40,7 @@ const innerFn = hello();
 // Możemy użyć tzw. rest operatora,
 // żeby zdefiniować funkcję - która przyjmie N argumentów
 function addAllNumbers(...numbers) {
-    return numbers.reduce((a, b) => a + b,0)
+    return numbers.reduce((a, b) => a + b, 0)
 }
 
 const result = addAllNumbers(10, 8, 3);
