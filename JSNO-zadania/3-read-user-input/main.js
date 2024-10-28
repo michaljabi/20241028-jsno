@@ -20,6 +20,7 @@ function makeBanner(word) {
   console.log(border);
   console.log(insideWord);
   console.log(border);
+  // return insideWord;
 }
 // console.log(border)
 
@@ -30,3 +31,7 @@ function makeBanner(word) {
 // });
 
 makeBanner("Michał");
+
+// words; //=
+// words.map(makeBanner); //=
+// words; //=
