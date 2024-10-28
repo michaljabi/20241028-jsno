@@ -57,6 +57,15 @@ function greetings(sayHelloFn, luckyNumber) {
 
 greetings(sayHello, sampleNumber)
 
+// możesz mieć obiekt (instancje) i od razu na nim metodę 
+const myUser = {
+	greetings(luckyNumber) {
+		console.log('Your lucky number is', luckyNumber)
+	}
+}
+
+myUser.greetings(9000)
+
 
 /*-----------> PART 3: >---------------------------------*/
 
