@@ -1,4 +1,8 @@
+// CommonJS (2009)
 const readline = require("readline");
+
+// vs ESM => Ecma Script Modules (2015)
+// import readline from "readline";
 const read = readline.createInterface(process.stdin, process.stdout);
 
 console.log(`
