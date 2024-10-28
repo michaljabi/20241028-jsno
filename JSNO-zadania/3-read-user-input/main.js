@@ -6,13 +6,27 @@ const mySentence = "To jest mój banner";
 // 4. dodać * patrz: repeat() dla stringa + .length
 // 5. wypisać na ekranie wszystkie bannery
 
-const upperSentence = mySentence.toUpperCase(); //=
-
-const words = upperSentence.split(" ");
+const words = mySentence.split(" ");
 
 // words; //=
+// const PADDING_LENGTH = 4;
 for (const word of words) {
-  console.log("*".repeat(word.length + 4));
-  console.log(`* ${word} *`);
-  console.log("*".repeat(word.length + 4));
+  makeBanner(word);
 }
+
+function makeBanner(word) {
+  const insideWord = `* ${word.toUpperCase()} *`;
+  const border = "*".repeat(insideWord.length);
+  console.log(border);
+  console.log(insideWord);
+  console.log(border);
+}
+// console.log(border)
+
+// words.forEach((word) => {
+//   console.log("*".repeat(word.length + 4));
+//   console.log(`* ${word} *`);
+//   console.log("*".repeat(word.length + 4));
+// });
+
+makeBanner("Michał");
