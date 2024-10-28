@@ -1,0 +1,13 @@
+{
+  "name": "4-modular-application",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}
