@@ -1,3 +1,4 @@
+// @ts-check
 /**
 
  Dlaczego funkcje są tak ważnym elementem ?
@@ -23,8 +24,8 @@
 
 // Funkcja anonimowa, która posiada referencję "sumMyNumbers"
 // Tylko dzięki niej (stałej) - możemy się do niej później odwołać!
-const sumMyNumbers = function(a = 0, b = 0) {
-    return a + b
+const sumMyNumbers = function (a = 0, b = 0) {
+	return a + b
 }
 
 console.log(sumMyNumbers())
@@ -37,12 +38,16 @@ console.log(sumMyNumbers(10, 20))
 let sampleNumber = 10
 // To powinniśmy je również móc przekazać jako parametr w funkcji:
 
-const sayHello = function() {
+const sayHello = function () {
 	console.log('Hello John!')
 }
 // Zapis powyżej to tzw. "Function expression" - wyrażenie funkcji
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
 
+/** 
+ * @param {*} sayHelloFn 
+ * @param {number} luckyNumber 
+ */
 function greetings(sayHelloFn, luckyNumber) {
 	sayHelloFn()
 	console.log('Your lucky number is', luckyNumber)
@@ -58,13 +63,13 @@ greetings(sayHello, sampleNumber)
 // Hmmm... skoro funkcja przyjmuje funkcje to może ją też zwracać!?
 
 function welcome() {
-	return function() {
+	return function () {
 		console.log('Welcome stranger')
 	}
 }
 
 // Najważniejsze jest zrozumienie że sam zapis:
-const greetingsFn = function() {
+const greetingsFn = function () {
 	return 'hello';
 }
 
@@ -105,8 +110,8 @@ const user = {
 * argumentu przekazywanego np. do metody - może wywołać zakłopotanie.
 * */
 
-user.getTheName(function (userName){
-	 console.log('My name is', userName);
+user.getTheName(function (userName) {
+	console.log('My name is', userName);
 });
 // Samo zapisanie funkcji w ten sposób to tak samo: wyrażenie funkcji
 /*
