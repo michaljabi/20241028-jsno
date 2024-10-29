@@ -55,10 +55,10 @@ fs.access(myFilePath, fs.constants.R_OK, (err) => {
 	}
 	// Jeśli jesteśmy w tym miejscu to znaczy że wszystko przebiegło pomyślnie, możemy odczytać plik:
 	fs.readFile(myFilePath, 'utf8', (err, data) => {
-		 if(err) {
-		 	  return console.error('Błąd odczytu pliku: ', err)
-		 }
-		 console.log('Treść pliku:')
-		 console.log(data);
-	})
+		if(err) {
+			  return console.error('Błąd odczytu pliku: ', err)
+		}
+		console.log('Treść pliku:')
+		console.log(data);
+   })
 })

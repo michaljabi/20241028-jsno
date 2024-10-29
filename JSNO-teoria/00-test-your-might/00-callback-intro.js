@@ -6,11 +6,12 @@ console.log('Hello stranger... shall we start?')
 function giveMeTheNumber(mistery) {
     // console.log(mistery);
     // undefined(300)
-    // mistery(500)
+    //mistery(500)
+
 
     setTimeout(() => {
-        // mistery(300)
-
+        // throw new Error('You are not allowed to get refund')
+        mistery(new Error('You are not allowed to get refund'), 100)
     }, 4000)
 }
 
@@ -20,12 +21,21 @@ function giveMeTheNumber(mistery) {
  * Poniżej odbierz liczbę 300 i pokaż ją na ekranie:
  * */
 // CONSUMER #1
-giveMeTheNumber((num) => {
-    console.log(num);
-})
+try {
+    giveMeTheNumber((err, num) => {
+        console.log(num);
+    })
+} catch (e) {
+    // wniosek: try / catch nie zadzia dla danych asynchronicznych :(
+    console.log(e.message)
+}
 
-// CONSUMER #2
-giveMeTheNumber((num) => {
+// CONSUMER #2 (poprawny odbir danych asynchronicznych)
+giveMeTheNumber((err, num) => {
+    if (err) {
+        console.log(err.message)
+        return;
+    }
     console.log(num);
 })
 
