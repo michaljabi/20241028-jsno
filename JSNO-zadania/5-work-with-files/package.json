@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/main.js",
-    "dev": "nodemon ./src/main.js"
+    "dev": "nodemon ./src/main.js",
+    "start:promise": "node ./src/main-promises.js",
+    "dev:promise": "nodemon ./src/main-promises.js"
   },
   "keywords": [],
   "author": "",
