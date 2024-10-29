@@ -10,35 +10,37 @@
  * https://developer.mozilla.org/en-US/docs/Glossary/Falsy
  * */
 
-if(false) {
+if (false) {
 	console.log('Am I working ?')
 }
-if(0) {
+if (0) {
 	console.log('Am I working?')
 }
-if(-0) {
+if (-0) {
 	console.log('Am I working?')
 }
-if(0n) {
+if (0n) {
 	console.log('Am I working?')
 }
-if(-0n) {
+if (-0n) {
 	console.log('Am I working?')
 }
-if('') {
+if ('') {
 	console.log('Am I working?')
 }
-if(undefined) {
+if (undefined) {
 	console.log('Am I working?')
 }
-if(NaN) {
+if (NaN) {
 	console.log('Am I working?')
 }
-if(null) {
+if (null) {
 	console.log('Am I working?')
 }
 
-if(1 === '1') {
+
+// To be continued....
+if (1 === '1') {
 	console.log('I am not working !')
 }
 
