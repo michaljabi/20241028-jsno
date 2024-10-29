@@ -19,8 +19,8 @@ readFile(dataPath, "utf-8", (err, data) => {
       return askAboutDataToAdd();
     }
     console.log("Problem z odczytem pliku");
-    read.close();
-    process.exit(1);
+    console.error(err.message);
+    closeProgram(1);
   }
   console.log("Dane z pliku:");
   console.log(data);
@@ -31,8 +31,7 @@ readFile(dataPath, "utf-8", (err, data) => {
 function askAboutDataToAdd() {
   read.question("Czy chcesz coś dopisać na koniec pliku (y/n): ", (letter) => {
     if (letter.toLowerCase() !== "y") {
-      read.close();
-      process.exit();
+      closeProgram();
     }
     getDataFromUser();
   });
@@ -48,9 +47,13 @@ function getDataFromUser() {
         if (err) {
           console.error(err.message);
         }
-        read.close();
-        process.exit();
+        closeProgram();
       }
     );
   });
+}
+
+function closeProgram(exitCode = 0) {
+  read.close();
+  process.exit(exitCode);
 }
