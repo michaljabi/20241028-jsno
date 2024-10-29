@@ -19,3 +19,5 @@ class Dog {
 // Typ Dog zawiera sie w typie Cat wiec takie przypisanie jest poprawne z perspektywy TS.
 const myDog: Dog = new Cat("mruczek");
 
+// https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html
+
