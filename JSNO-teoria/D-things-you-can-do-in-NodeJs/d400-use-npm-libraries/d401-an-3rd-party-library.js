@@ -21,7 +21,12 @@
   Przykładem będzie tutaj biblioteka "chalk" - która służy do kolorowania tekstu w terminalu.
 */
 
-const chalk = require('chalk');
+
+// const { blue } = require('chalk');
+// import { blue } from 'chalk';
+
+// const chalk = require('chalk');
+import chalk from 'chalk';
 
 console.log(chalk.blue('My Little'), chalk.black.bgRed(' World! '));
 
