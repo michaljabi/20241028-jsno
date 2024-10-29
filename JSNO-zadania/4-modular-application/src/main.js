@@ -30,8 +30,7 @@ function askWhatNext() {
       if (lowerLetter === "k") {
         read.close();
         process.exit();
-      }
-      if (lowerLetter === "n") {
+      } else if (lowerLetter === "n") {
         askAboutBanner();
       } else {
         console.log(`Nieobsługiwany wybór "${letter}"!  `);
