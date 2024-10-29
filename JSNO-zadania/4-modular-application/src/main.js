@@ -6,6 +6,8 @@ const read = readline.createInterface(process.stdin, process.stdout);
 
 makeProgramTitle();
 
+askAboutBanner();
+
 function askAboutBanner() {
   read.question("Podaj zdanie jakie chcesz zamienić w banner: ", (sentence) => {
     const words = sentence.split(" ");
@@ -23,17 +25,29 @@ function askWhatNext() {
 [n]astępny banner
 `,
     (letter) => {
-      if (letter.toLowerCase() === "k") {
+      const lowerLetter = letter.toLowerCase();
+      if (lowerLetter === "k") {
         read.close();
         process.exit();
-      } else if (letter.toLowerCase() === "n") {
+      }
+      if (lowerLetter === "n") {
         askAboutBanner();
       } else {
         console.log(`Nieobsługiwany wybór "${letter}"!  `);
         askWhatNext();
       }
+      // switch (lowerLetter) {
+      //   case "k":
+      //     read.close();
+      //     process.exit();
+      //     break;
+      //   case "n":
+      //     askAboutBanner();
+      //     break;
+      //   default:
+      //     console.log(`Nieobsługiwany wybór "${letter}"!  `);
+      //     askWhatNext();
+      // }
     }
   );
 }
-
-askAboutBanner();
