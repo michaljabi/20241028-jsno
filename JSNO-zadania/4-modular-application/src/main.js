@@ -1,4 +1,5 @@
 import readline from "node:readline";
+import process from "node:process";
 import { makeProgramTitle } from "./program-title.js";
 import { makeBanner } from "./make-banner.js";
 
