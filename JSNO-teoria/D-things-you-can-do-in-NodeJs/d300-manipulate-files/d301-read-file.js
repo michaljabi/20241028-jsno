@@ -29,8 +29,19 @@
 // Zanim odczytamy plik sprawdźmy czy on istnieje - dzięki "access":
 const fs = require('fs');
 
-fs.access('./sample-file.txt', (err) => {
-	if(err) {
+
+
+// Żeby upewnić się na 100 % że zawsze pokazujemy właściwy plik,
+// Potrzebujemy jeszcze jednej natywnej biblioteki "path"
+const path = require('path');
+// Resolve pomoże nam ścieżkę absolutną do pliku
+// __dirname - wskazuje na katalog w którym mieści się ten skrypt
+const myFilePath = path.resolve(__dirname, 'sample-file.txt');
+
+console.log(__dirname)
+
+fs.access(myFilePath, (err) => {
+	if (err) {
 		console.log(err);
 		// W zależności od tego z jakiego miejsca uruchomiliśmy ten plik...
 		// Okazać się może, że plik nie istnieje !?
@@ -39,26 +50,13 @@ fs.access('./sample-file.txt', (err) => {
 		console.log(err.path);
 		// Jest to ścieżka miejsca uruchomienia tego skryptu + nazwa pliku.
 	}
+	console.log("Mam dostęp do tego pliku")
 })
 
-// Żeby upewnić się na 100 % że zawsze pokazujemy właściwy plik,
-// Potrzebujemy jeszcze jednej natywnej biblioteki "path"
-const path = require('path');
-// Resolve pomoże nam ścieżkę absolutną do pliku
-// __dirname - wskazuje na katalog w którym mieści się ten skrypt
-const myFilePath = path.resolve(__dirname, './sample-file.txt');
-// Dodatkowo fs.constants.R_OK sprawdzamy czy możemy odczytać plik.
-// https://nodejs.org/dist/latest-v14.x/docs/api/fs.html#fs_fs_access_path_mode_callback
-fs.access(myFilePath, fs.constants.R_OK, (err) => {
-	if(err) {
-		return console.error('Błąd dostępu do pliku: ', err)
+fs.readFile(myFilePath, 'utf8', (err, data) => {
+	if (err) {
+		return console.error('Błąd odczytu pliku: ', err)
 	}
-	// Jeśli jesteśmy w tym miejscu to znaczy że wszystko przebiegło pomyślnie, możemy odczytać plik:
-	fs.readFile(myFilePath, 'utf8', (err, data) => {
-		if(err) {
-			  return console.error('Błąd odczytu pliku: ', err)
-		}
-		console.log('Treść pliku:')
-		console.log(data);
-   })
+	console.log('Treść pliku:')
+	console.log(data);
 })
