@@ -1,0 +1,17 @@
+GET http://localhost:3030
+
+
+###
+
+POST http://localhost:3030
+
+###
+
+POST http://localhost:3030/hello/world/of/tanks
+
+
+###
+
+PATCH http://localhost:3030/hello/world
+Content-Type: application/json
+Accept-Language: pl

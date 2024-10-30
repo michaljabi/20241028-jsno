@@ -3,45 +3,55 @@
  * Utworzenie serwera w Node.js jest niesamowicie proste.
  * Służy do tego natywna biblioteka http
  *
-*/
+ */
 
 // Użycie biblioteki http:
-const http = require('http');
+const http = require("http");
 // Ustalamy pomocniczą stałą z konfiguracją portu:
 const PORT = 3030;
 
 // Tworzymy obiekt serwera
-const server = http.createServer(function (request, response) {
-	// Zauważ że ta funkcja to callback.
-	// Dopiero jest to jej wyrażenie - co oznacza że jeszcze się nie wykonała !
+const server = http.createServer((request, response) => {
+  // Zauważ że ta funkcja to callback.
+  // Dopiero jest to jej wyrażenie - co oznacza że jeszcze się nie wykonała !
 
-	// KIEDY SIĘ WYKONA ?
-	// Dopiero jak po uruchomieniu programu, odwiedzimy stronę: http://localhost:3030
+  // KIEDY SIĘ WYKONA ?
+  // Dopiero jak po uruchomieniu programu, odwiedzimy stronę: http://localhost:3030
 
-	// URUCHOMI się za każdym razem jak ktoś wejdzie na ten adres !
+  // URUCHOMI się za każdym razem jak ktoś wejdzie na ten adres !
+  console.log("Headers:", request.headers);
+  console.log("Method:", request.method);
+  console.log("URL:", request.url);
+  //response.write("Witaj na serwerze?");
 
-	response.write('Witaj na serwerze!');
-	response.end();
-})
+  response.write("Witaj");
+  response.write(" ");
+  response.write("na ");
+  response.end();
+  // response.write("serwerze?");
+});
 
 // Nasłuchujemy na zdefiniowanym porcie!
 server.listen(PORT);
 
 // Metoda .on na serwerze - służy do rejestrowania "listenerów"
 // Czyli funkcji - callbacków które mają się wykonać jeśli wystąpi konkretny nazwany event:
-server.on('listening',  () => {
-	console.log('Serwer poprawnie ustawiony, nasłuchuje na procie:', PORT);
-})
+server.on("listening", () => {
+  console.log("Serwer poprawnie ustawiony, nasłuchuje na procie:", PORT);
+});
 
 // Tutaj przykład co się stanie jeśli wystąpi error:
-server.on('error',  (err) => {
-
-	if(err.code === 'EADDRINUSE') {
-		console.log('Nie udało się ustawić serwera, niestety port:', PORT, 'Jest ZAJĘTY');
-	} else {
-		console.log('Wystąpił nieznany błąd !', err)
-	}
-})
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    console.log(
+      "Nie udało się ustawić serwera, niestety port:",
+      PORT,
+      "Jest ZAJĘTY"
+    );
+  } else {
+    console.log("Wystąpił nieznany błąd !", err);
+  }
+});
 
 // A teraz ciekawostka:
 // Gdziekolwiek i jakkolwiek wejdziemy na stronę, zawsze pokaże ona `Witaj na serwerze!` jeśli serwer

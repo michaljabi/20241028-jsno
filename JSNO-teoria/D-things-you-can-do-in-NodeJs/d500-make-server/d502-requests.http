@@ -1,0 +1,12 @@
+GET http://localhost:3031
+
+# komentarz
+
+### rozdzielenie requestów...
+
+GET http://localhost:3031/cars
+
+
+####
+
+GET http://localhost:3031/date

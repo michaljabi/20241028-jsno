@@ -1,0 +1,18 @@
+GET http://localhost:3034
+
+# komentarz
+
+### rozdzielenie requestów...
+
+PATCH http://localhost:3034/carszzzz
+
+
+#### Zapytaj o wszystkie samochody:
+
+GET http://localhost:3034/cars
+Authorization: Barer 7t1e761t872ye98u120e=-1827e987129e-1927e87
+
+#### Zapytaj o samochód z konketnym id:
+
+GET http://localhost:3034/cars/81237481647?orderBy=made&other=things
+Authorization: Barer 7t1e761t872ye98u120e=-1827e987129e-1927e87
