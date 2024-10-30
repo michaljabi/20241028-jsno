@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Zadaniem konsolowego narzędzia ESLint — jest pilnowanie poprawności naszego kodu.
  * Już na poziomie tzw. "statycznej analizy kodu"
@@ -14,21 +15,26 @@
  * https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
  * */
 
-
 // Tutaj fajny error zawczasu (no-undef):
-nyGlobalProblem = null;
-
+const nyGlobalProblem = null;
+console.log(nyGlobalProblem);
 
 // Kolejny problem (prefer-const):
-let ex = 2;
-console.log(ex + 39)
+const ex = 2;
+console.log(ex + 39);
 
 // Pozostawienie linii poniżej groziłoby zatrzymaniem programu:
-debugger;
+// debugger;
 
 const y = 20;
+console.log(y);
 
 // (no-unused-vars)
-function addTwoNumbers(a, y) { // warning, (no-shadow) dla "y"
-	return a + y;
+function addTwoNumbers(a, z) {
+  // warning, (no-shadow) dla "y"
+  console.log(y);
+  console.log(z);
+  return a + z;
 }
+
+addTwoNumbers(90, 220);
