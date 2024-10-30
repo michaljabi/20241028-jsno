@@ -9,14 +9,15 @@
  */
 
 class NewCar {
-
-  constructor () {
-    this.engine = 'V8';
-    this.name = 'Aston Martin Vantage';
+  constructor(engine = "V8", name = "Aston Martin Vantage") {
+    this.engine = engine;
+    this.name = name;
   }
 
-  makeSomeNoise () {
-    console.log( `Wroom ${this.engine}, wroom - the ${this.name} is driving here` );
+  makeSomeNoise() {
+    console.log(
+      `Wroom ${this.engine}, wroom - the ${this.name} is driving here`
+    );
   }
 }
 
@@ -24,7 +25,7 @@ new NewCar().makeSomeNoise();
 
 const otherCar = new NewCar();
 
-otherCar.engine = 'V12';
-otherCar.name = 'Aston Martin DB11';
+otherCar.engine = "V12";
+otherCar.name = "Aston Martin DB11";
 
 otherCar.makeSomeNoise();
